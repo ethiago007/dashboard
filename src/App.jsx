@@ -1,19 +1,37 @@
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import './App.css'
 import NavBar from './components/navbar'
 import FullWidthGrid from './components/overview'
 import RecentProjects from './components/recent'
+import Preloader from './components/loader'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate a loading time (e.g., fetching data)
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false); // Set loading to false after 3 seconds
+    }, 7000);
+  }, []);
+
 
   return (
     <> 
-     <NavBar />
+     <div>
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <div>
+          <NavBar />
      <br />
      <FullWidthGrid />
      <br />
      <RecentProjects />
+        </div>
+      )}
+    </div>
+     
     </>
   )
 }
