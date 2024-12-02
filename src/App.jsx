@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import NavBar from './components/navbar'
 import FullWidthGrid from './components/overview'
-import BasicTable from './components/recent'
+import RecentProjects from './components/recent'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,7 +13,7 @@ function App() {
      <br />
      <FullWidthGrid />
      <br />
-     <BasicTable />
+     <RecentProjects />
     </>
   )
 }
